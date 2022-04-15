@@ -167,7 +167,7 @@ public class ProductApi {
 		productFacade.deleteProduct(id, merchantStore);
 	}
 
-	/**
+	/** CURRENTLY USED
 	 * Filtering product lists based on product attributes ?category=1
 	 * &manufacturer=2 &type=... &lang=en|fr NOT REQUIRED, will use request language
 	 * &start=0 NOT REQUIRED, can be used for pagination &count=10 NOT REQUIRED, can

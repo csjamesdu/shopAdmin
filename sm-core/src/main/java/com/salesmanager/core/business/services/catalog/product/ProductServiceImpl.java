@@ -48,6 +48,7 @@ import com.salesmanager.core.model.content.ImageContentFile;
 import com.salesmanager.core.model.merchant.MerchantStore;
 import com.salesmanager.core.model.reference.language.Language;
 import com.salesmanager.core.model.tax.taxclass.TaxClass;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service("productService")
 public class ProductServiceImpl extends SalesManagerEntityServiceImpl<Long, Product> implements ProductService {
@@ -248,20 +249,22 @@ public class ProductServiceImpl extends SalesManagerEntityServiceImpl<Long, Prod
 		}
 
 		super.delete(product);
-		searchService.deleteIndex(product.getMerchantStore(), product);
+//		searchService.deleteIndex(product.getMerchantStore(), product);
 
 	}
 
 	@Override
+	@Transactional
 	public void create(Product product) throws ServiceException {
 		saveOrUpdate(product);
-		searchService.index(product.getMerchantStore(), product);
+//		searchService.index(product.getMerchantStore(), product);
 	}
 
 	@Override
+	@Transactional
 	public void update(Product product) throws ServiceException {
 		saveOrUpdate(product);
-		searchService.index(product.getMerchantStore(), product);
+//		searchService.index(product.getMerchantStore(), product);
 	}
 
 	private void saveOrUpdate(Product product) throws ServiceException {
