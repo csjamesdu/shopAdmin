@@ -111,7 +111,7 @@ public class ProductServiceImpl extends SalesManagerEntityServiceImpl<Long, Prod
 		product.getDescriptions().add(description);
 		description.setProduct(product);
 		update(product);
-		searchService.index(product.getMerchantStore(), product);
+//		searchService.index(product.getMerchantStore(), product);
 	}
 
 	@Override
